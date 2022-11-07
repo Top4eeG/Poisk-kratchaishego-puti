@@ -1,0 +1,27 @@
+program Project1;
+
+uses
+  Vcl.Forms,
+  Windows,
+  Главное_меню in 'Главное_меню.pas' {Form1},
+  Загрузка in 'Загрузка.pas' {Form2},
+  Теория in 'Теория.pas' {Form3},
+  Тест in 'Тест.pas' {Form4},
+  Расчёт in 'Расчёт.pas' {Form5},
+  WMPLib_TLB in 'C:\Users\USER\Documents\Embarcadero\Studio\21.0\Imports\WMPLib_TLB.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TForm3, Form3);
+  Application.CreateForm(TForm4, Form4);
+  Application.CreateForm(TForm5, Form5);
+  Form2.Show;
+Sleep(7670);
+Form2.Hide;
+
+Application.Run;
+end.

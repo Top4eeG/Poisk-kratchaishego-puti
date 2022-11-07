@@ -1,0 +1,98 @@
+unit Unit4;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.Imaging.pngimage;
+
+type
+  TForm4 = class(TForm)
+    Image1: TImage;
+    Button1: TButton;
+    Label1: TLabel;
+    RadioGroup1: TRadioGroup;
+    Image2: TImage;
+    Image3: TImage;
+    procedure Button1Click(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form4: TForm4;
+  f: text;
+  s: string;
+  Nvern, ball: integer;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TForm4.Button1Click(Sender: TObject);
+begin
+Application.Terminate;
+end;
+
+procedure TForm4.Image2Click(Sender: TObject);
+begin
+   RadioGroup1.Enabled:=true;
+   AssignFile(f,'variant.txt');
+   reset(f);
+   readln(f,s);
+   ball:=0;
+   repeat
+   if (s[1]='-')then begin
+   delete(s,1,1);
+   RadioGroup1.Caption:=s;
+   end
+   else if s[1]='*' then begin
+   delete(s,1,1);
+   Nvern:=StrToInt(s);
+   end
+   else RadioGroup1.Items.Add(s);
+   readln(f,s);
+   until(s[1]='-')or(Eof(f));
+   Image2.Visible:=False;
+   Image3.Visible:=True;
+end;
+
+procedure TForm4.Image3Click(Sender: TObject);
+begin
+if (RadioGroup1.ItemIndex>-1) and (not Eof(f)) then begin
+if RadioGroup1.ItemIndex = Nvern-1 then ball:=ball+1;
+RadioGroup1.Items.Clear;
+Repeat
+if (s[1]='-') then begin
+delete(s,1,1);
+RadioGroup1.Caption:=s;
+end
+else if s[1]='*' then begin
+delete(s,1,1);
+Nvern:=StrToInt(s);
+
+end
+
+else RadioGroup1.Items.Add(s);
+readln(f,s);
+until (s[1]='-') or (Eof(f));
+end
+
+Else if Eof(f) then begin
+delete(s,1,1);
+Nvern:=StrToInt(s);
+if RadioGroup1.ItemIndex = Nvern-1 then ball:=ball+1;
+Label1.Caption:='¬аш балл за тест - '+IntToStr(ball);
+CloseFile(f);
+Image3.Enabled:=False;
+
+end;
+end;
+
+end.

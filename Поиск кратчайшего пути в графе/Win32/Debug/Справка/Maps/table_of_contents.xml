@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map xmlns:xsi="http://www.w3.org/2001/XInclude">
+  <topicref type="topic" id="421579986017862" modified="2015-06-02T18:56:53.338Z" icon="0" href="Stylesheet-for-Style-Test">
+    <caption translate="true">Stylesheet for Style Test</caption>
+  </topicref>
+  <topicref type="topic" id="447457442341097" build="ALL" modified="2022-07-04T07:34:47.817Z" icon="0" href="Introduction">
+    <caption translate="true">Сведения</caption>
+    <topicref type="topic" id="447455582509986" build="ALL" modified="2022-07-04T07:33:25.569Z" icon="0" href="Welcome-topic">
+      <caption translate="true">О программе</caption>
+    </topicref>
+    <topicref type="topic" id="447457675630639" build="ALL" modified="2022-07-04T07:33:32.139Z" icon="0" href="Second-topic">
+      <caption translate="true">О разработчике</caption>
+    </topicref>
+  </topicref>
+</map>
